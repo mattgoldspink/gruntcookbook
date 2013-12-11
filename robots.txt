@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mattgoldspink.github.io//github/sitemap.xml 
+Sitemap: http://mattgoldspink.github.io/gruntcookbook/sitemap.xml 

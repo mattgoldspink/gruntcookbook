@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://mattgoldspink.github.io//github/atom.xml" rel="self"/>
-  <link href="http://mattgoldspink.github.io//github/"/>
-  <updated>2013-12-11T18:35:39+00:00</updated>
-  <id>http://mattgoldspink.github.io//github/</id>
+  <title><![CDATA[Grunt Cookbook]]></title>
+  <link href="http://mattgoldspink.github.io/gruntcookbook/atom.xml" rel="self"/>
+  <link href="http://mattgoldspink.github.io/gruntcookbook/"/>
+  <updated>2013-12-11T20:58:30+00:00</updated>
+  <id>http://mattgoldspink.github.io/gruntcookbook/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Matt Goldspink]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
