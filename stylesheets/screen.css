@@ -348,10 +348,10 @@ article blockquote cite:before {
   word-wrap: break-word;
 }
 
-.group, body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section, body div.pagination, aside.sidebar, #main, #content, .sidebar {
+.group, body > header, body > footer, body #content > article, body #content > div > article, body #content > div > section, body div.pagination, aside.sidebar, #main, #content, .sidebar {
   *zoom: 1;
 }
-.group:after, body > header:after, body > nav:after, body > footer:after, body #content > article:after, body #content > div > section:after, body div.pagination:after, #main:after, #content:after, .sidebar:after {
+.group:after, body > header:after, body > footer:after, body #content > article:after, body #content > div > section:after, body div.pagination:after, #main:after, #content:after, .sidebar:after {
   content: "";
   display: table;
   clear: both;
@@ -362,24 +362,24 @@ body {
   position: relative;
   margin: 0;
 }
-body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section {
+body > header, body > footer, body #content > article, body #content > div > article, body #content > div > section {
   padding-left: 18px;
   padding-right: 18px;
 }
 @media only screen and (min-width: 480px) {
-  body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section {
+  body > header, body > footer, body #content > article, body #content > div > article, body #content > div > section {
     padding-left: 25px;
     padding-right: 25px;
   }
 }
 @media only screen and (min-width: 768px) {
-  body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section {
+  body > header, body > footer, body #content > article, body #content > div > article, body #content > div > section {
     padding-left: 35px;
     padding-right: 35px;
   }
 }
 @media only screen and (min-width: 992px) {
-  body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section {
+  body > header, body > footer, body #content > article, body #content > div > article, body #content > div > section {
     padding-left: 55px;
     padding-right: 55px;
   }
