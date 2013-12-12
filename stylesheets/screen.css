@@ -363,7 +363,7 @@ body {
   -webkit-text-size-adjust: none;
   max-width: 1200px;
   position: relative;
-  margin: 0 auto;
+  margin: 0;
 }
 body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section {
   padding-left: 18px;
@@ -646,7 +646,6 @@ body > header {
   -moz-perspective: 100px;
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  padding: 0 !important;
 }
 body > header h1 {
   margin-top: -27px;
@@ -654,6 +653,7 @@ body > header h1 {
 }
 body > header h1 a, body > header h1 a:visited, body > header h1 a:hover {
   text-decoration: none;
+  font-weight: bold;
 }
 body > header h2 {
   margin-top: -64px;
