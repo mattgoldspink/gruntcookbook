@@ -102,11 +102,9 @@ html {
 }
 
 body > div {
-  background: #f2f2f2 url('/gruntcookbook/images/noise.png?1386763537') top left;
   border-bottom: 1px solid #bfbfbf;
 }
 body > div > div {
-  background: #f8f8f8 url('/gruntcookbook/images/noise.png?1386763537') top left;
   border-right: 1px solid #e0e0e0;
 }
 
@@ -361,7 +359,6 @@ article blockquote cite:before {
 
 body {
   -webkit-text-size-adjust: none;
-  max-width: 1200px;
   position: relative;
   margin: 0;
 }
@@ -1168,7 +1165,6 @@ article > footer p.meta {
   text-align: center;
   font-size: .95em;
   position: relative;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
 }
