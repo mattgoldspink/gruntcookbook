@@ -425,6 +425,10 @@ p:last-child {
   margin-bottom: 0;
 }
 
+section ul, section ol {
+  margin-left: 1.35em;
+}
+
 #content {
   overflow: hidden;
 }
