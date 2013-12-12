@@ -429,6 +429,12 @@ section ul, section ol {
   margin-left: 1.35em;
 }
 
+p,
+ul,
+li {
+  font-weight: lighter;
+}
+
 #content {
   overflow: hidden;
 }
