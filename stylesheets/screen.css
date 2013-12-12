@@ -768,16 +768,10 @@ body > header section:first-child {
 }
 
 body > nav {
-  position: relative;
-  background-color: #cccccc;
-  background: url('/gruntcookbook/images/noise.png?1386763537'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e0e0), color-stop(50%, #cccccc), color-stop(100%, #b0b0b0));
-  background: url('/gruntcookbook/images/noise.png?1386763537'), -webkit-linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
-  background: url('/gruntcookbook/images/noise.png?1386763537'), -moz-linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
-  background: url('/gruntcookbook/images/noise.png?1386763537'), -o-linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
-  background: url('/gruntcookbook/images/noise.png?1386763537'), linear-gradient(#e0e0e0, #cccccc, #b0b0b0);
-  border-top: 1px solid #f2f2f2;
-  border-bottom: 1px solid #8c8c8c;
-  padding-top: .35em;
+  position: absolute;
+  top: 0.35em;
+  margin: 0 auto;
+  width: 100%;
   padding-bottom: .35em;
 }
 body > nav form {
@@ -801,9 +795,6 @@ body > nav form .search {
   -webkit-background-clip: padding;
   -moz-background-clip: padding;
   background-clip: padding-box;
-  -webkit-box-shadow: #d1d1d1 0 1px;
-  -moz-box-shadow: #d1d1d1 0 1px;
-  box-shadow: #d1d1d1 0 1px;
   background-color: #f2f2f2;
   border: 1px solid #b3b3b3;
   color: #888;
@@ -877,9 +868,8 @@ body > nav ul {
     margin: 0;
   }
   body > nav a {
-    color: #6b6b6b;
+    color: white;
     font-family: "Open Sans", sans-serif;
-    text-shadow: #ebebeb 0 1px;
     float: left;
     text-decoration: none;
     font-size: 1.1em;
@@ -890,7 +880,7 @@ body > nav ul {
     color: #6b6b6b;
   }
   body > nav a:hover {
-    color: #2b2b2b;
+    color: #eeeeee;
   }
   body > nav li + li {
     border-left: 1px solid #b0b0b0;
