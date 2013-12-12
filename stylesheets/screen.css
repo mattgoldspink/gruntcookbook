@@ -632,11 +632,11 @@ body.sidebar-footer .toggle-sidebar {
 body > header {
   font-size: 125%;
   background: -webkit-gradient(radial, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(60%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background: -webkit-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png");
-  background: -moz-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png");
-  background: -o-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png");
-  background: -ms-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png");
-  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png");
+  background: -webkit-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png?1");
+  background: -moz-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png?1");
+  background: -o-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png?1");
+  background: -ms-radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png?1");
+  background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0)), url("../assets/images/dark_geometric.png?1");
   color: #ffffff;
   margin: 0 0 16px;
   width: 100%;
