@@ -788,6 +788,7 @@ body > header section:last-child {
   top: 2%;
   height: 95%;
   content: ' ';
+  z-index: -1;
   -webkit-transition: -webkit-transform 0.5s;
   -moz-transition: -moz-transform 0.5s;
   -o-transition: -o-transform 0.5s;
