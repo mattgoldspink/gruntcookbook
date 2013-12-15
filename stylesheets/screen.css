@@ -769,10 +769,6 @@ body > header section:last-child {
   -ms-transform: perspective(100) rotateY(0deg);
   -o-transform: perspective(100) rotateY(0deg);
   transform: perspective(100) rotateY(0deg);
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  -o-transition: -o-transform 0.5s;
-  transition: transform 0.5s;
 }
 
 .book img {
@@ -789,18 +785,6 @@ body > header section:last-child {
   height: 95%;
   content: ' ';
   z-index: -1;
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  -o-transition: -o-transform 0.5s;
-  transition: transform 0.5s;
-  -webkit-transition-property: width left;
-  -moz-transition-property: width left;
-  -o-transition-property: width left;
-  transition-property: width left;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
 }
 
 .book:before {
@@ -808,16 +792,10 @@ body > header section:last-child {
   left: 7.5%;
   background-color: #5a2d18;
   box-shadow: 5px 5px 20px #333333;
-  -moz-perspective: 100;
-  -webkit-transform: perspective(100) rotateY(0deg);
-  -moz-transform: rotateY(0deg);
-  -ms-transform: perspective(100) rotateY(0deg);
-  -o-transform: perspective(100) rotateY(0deg);
-  transform: perspective(100) rotateY(0deg);
 }
 
 .book:after {
-  width: 17px;
+  left: 100%;
   background-color: #efefef;
   box-shadow: inset 0 0 5px #aaaaaa;
   -moz-perspective: 100;
@@ -829,17 +807,17 @@ body > header section:last-child {
 }
 @media only screen and (min-width: 480px) {
   .book:after {
-    left: 170px;
+    width: 6px;
   }
 }
 @media only screen and (min-width: 768px) {
   .book:after {
-    left: 170px;
+    width: 13px;
   }
 }
 @media only screen and (min-width: 992px) {
   .book:after {
-    left: 215px;
+    width: 17px;
   }
 }
 
