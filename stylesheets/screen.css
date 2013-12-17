@@ -665,7 +665,7 @@ body > header {
 }
 @media only screen and (min-width: 320px) {
   body > header {
-    height: 480px;
+    height: 430px;
   }
 }
 @media only screen and (min-width: 480px) {
@@ -782,7 +782,7 @@ body > header section:last-child {
 
 @media only screen and (min-width: 320px) {
   .book_cover {
-    width: 180px;
+    width: 130px;
   }
 }
 @media only screen and (min-width: 768px) {
