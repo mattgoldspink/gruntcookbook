@@ -4,7 +4,7 @@
   <title><![CDATA[Grunt Cookbook]]></title>
   <link href="http://mattgoldspink.github.io/gruntcookbook/atom.xml" rel="self"/>
   <link href="http://mattgoldspink.github.io/gruntcookbook/"/>
-  <updated>2013-12-17T11:30:55+00:00</updated>
+  <updated>2013-12-21T15:24:39+00:00</updated>
   <id>http://mattgoldspink.github.io/gruntcookbook/</id>
   <author>
     <name><![CDATA[Matt Goldspink]]></name>
@@ -12,5 +12,408 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Running and Debugging Jasmine Tests With Grunt]]></title>
+    <link href="http://mattgoldspink.github.io/gruntcookbook/blog/2013/12/20/running-and-debugging-jasmine-tests-with-grunt/"/>
+    <updated>2013-12-20T14:15:14+00:00</updated>
+    <id>http://mattgoldspink.github.io/gruntcookbook/blog/2013/12/20/running-and-debugging-jasmine-tests-with-grunt</id>
+    <content type="html"><![CDATA[<h2>Problem</h2>
+
+<p>We all know testing is a good thing to validate that our code works, but somehow we find it too difficult to setup, especially with JavaScript. Fortunately Grunt makes testing very simple to setup and integreate into a developer workflow.</p>
+
+<h2>Ingredients</h2>
+
+<p>Command Line:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install grunt-contrib-jasmine --save-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In your Gruntfile.js</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-jasmine&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Solution</h2>
+
+<p>Firstly lets write a very simple Jasmine spec with one simple assertion</p>
+
+<figure class='code'><figcaption><span>tests/specs/test_a.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Simple jasmine suite&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;and a simple spec&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">a</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is obviously not representative of a real Jasmine test but gives us a simple assertion that we know should pass and allows us to verify that our <code>Gruntfile.js</code> is configured correctly. Note that I&rsquo;ve put it into the following directory <code>tests\specs</code>, I&rsquo;ve found this distinction allows for other types of tests, for example Selenium or Cucumber tests can be added in seperate sub directories of the <code>tests</code> folder.</p>
+
+<p>One common pain point with Jasmine is the fact that a HTML file and all the Jasmine dependencies need to be set up in order to write Jasmine tests. For developers used to JUnit or NUnit this seems unusual and a big hassle in my opinion, I should be able to focus on writing the tests and the assertions and not have to deal with any boilerplate. Well fortunately the Grunt Jasmine task helps alleviate this page by auto-generating the boilerplate page and including the Jasmine files for us. All we need to do is tell it where our source, libraries and test files live. Let&rsquo;s see this in action:</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">jasmine</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;src/js/app.js&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;src/js/jquery.js&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">specs</span><span class="o">:</span> <span class="s1">&#39;tests/specs/*.js&#39;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&rsquo;s break this down:</p>
+
+<ul>
+<li>Line 4 &ndash; This tells Jasmine our source file (or files), i.e the ones whose code we want to verify.</li>
+<li>Line 6 &ndash; <code>vendor</code> allows us to specify any core frameworks our application might use, like jQuery in our case. The task will ensure these are loaded before our source files.</li>
+<li>Line 7 &ndash; Finally we tell the task where our Jasmine <code>specs</code> live, i.e. our actual tests.</li>
+</ul>
+
+
+<p>This gives the Jasmine task enough information to generate a HTML page in which to run our tests, so let&rsquo;s see it in action:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grunt jasmine:dev
+</span><span class='line'>Running <span class="s2">&quot;jasmine:dev&quot;</span> <span class="o">(</span>jasmine<span class="o">)</span> task
+</span><span class='line'>Testing jasmine specs via phantom
+</span><span class='line'>.
+</span><span class='line'>1 spec in 0.001s.
+</span><span class='line'>&gt;&gt; 0 failures
+</span><span class='line'>
+</span><span class='line'>Done, without errors.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here we can see that 1 spec was run and that it passed. Let&rsquo;s add another quick test in a new file and this time we&rsquo;ll intentionally make it fail:</p>
+
+<figure class='code'><figcaption><span>tests/specs/test_b.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Simple jasmine suite 2&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;and a simple spec which fails&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">b</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We don&rsquo;t need to change our task as it&rsquo;s been defined to pick up all js files under the <code>tests/specs</code> directory, so let&rsquo;s just run it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grunt jasmine:dev
+</span><span class='line'>Running <span class="s2">&quot;jasmine:dev&quot;</span> <span class="o">(</span>jasmine<span class="o">)</span> task
+</span><span class='line'>Testing jasmine specs via phantom
+</span><span class='line'>.x
+</span><span class='line'>Simple jasmine suite:: and a simple spec which fails: failed
+</span><span class='line'>  Expected <span class="nb">false </span>to be true. <span class="o">(</span>1<span class="o">)</span>
+</span><span class='line'>2 specs in 0.353s.
+</span><span class='line'>&gt;&gt; 1 failures
+</span><span class='line'>Warning: Task <span class="s2">&quot;jasmine:dev&quot;</span> failed. Use --force to <span class="k">continue</span>.
+</span><span class='line'>
+</span><span class='line'>Aborted due to warnings.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This time around we can see that our new spec failed and caused the entire grunt build to fail, which is exactly the behaviour we&rsquo;d want.</p>
+
+<h3>Debugging your tests in browser</h3>
+
+<p>Sometimes a test will fail and it can be difficult to know why when running it on the command line. In this case we&rsquo;d want to be able to open up the Jasmine test page in a browser and use the browser&rsquo;s debugging tools to see where it was failing. Fortunately the Grunt Jasmine task provides us a way to generate the page it produces, however we then need to kick off a simple http server to host it in a browser.</p>
+
+<p>The first step of generating the page is very simple. When we run the task instead we just tell the Jasmine task to <code>build</code> the page instead of running the tests:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grunt jasmine:dev:build
+</span><span class='line'>Running <span class="s2">&quot;jasmine:dev:build&quot;</span> <span class="o">(</span>jasmine<span class="o">)</span> task
+</span><span class='line'>
+</span><span class='line'>Done, without errors.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should find a new file in the current directory called <code>_SpecRunner.html</code>. This is the page that the task would have used to run the tests. Now we need to spin up a web server to host this page so we can hit it in our browsers. There are a couple of ways to do this but I believe the best way is to make sure we have it in our <code>Gruntfile.js</code> so that any other developers can perform the same task in exactly the same way. We will install a new task for this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install grunt-contrib-connect --save-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Connect is a web server and the above plugin allows us to create one within Grunt. It needs to be loaded into our <code>Gruntfile.js</code> by adding the following line:</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-connect&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The configuration in the <code>Gruntfile.js</code> is extremely simple:</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">jasmine</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;src/js/app.js&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;src/js/jquery.js&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">specs</span><span class="o">:</span> <span class="s1">&#39;tests/specs/*.js&#39;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="nx">connect</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">jasmine</span><span class="o">:</span> <span class="p">{}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will allow us to kick off a web server on port <code>8080</code> in the current directory. When we run it we need to tell Connect to keep running and not terminate immediately, which is the default behaviour. To do this when we run the task we add a <code>keepalive</code> flag, like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grunt connect:jasmine:keepalive
+</span><span class='line'>Running <span class="s2">&quot;connect:jasmine:keepalive&quot;</span> <span class="o">(</span>connect<span class="o">)</span> task
+</span><span class='line'>Waiting forever...
+</span><span class='line'>Started connect web server on 127.0.0.1:8000.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Open a browser and you should be able to navigate to <code>http://127.0.0.1:8000/_SpecRunner.html</code> and see the following:</p>
+
+<p><img src="images/{}/Jasmine_Spec_Runner.png" alt="Jasmine Spec Runner" /></p>
+
+<p>You can now open the debugger in your browser and see what&rsquo;s causing the issue, although the stack trace is already very helpful! To kill the process just <code>ctrl + c</code> (<code>cmd + c</code> on Mac&rsquo;s).</p>
+
+<p>Now I have an issue with what we&rsquo;ve done so far. It takes me two commands to get a web page generated and visible in the browser. I&rsquo;d ideally like just one command to do all this, so let&rsquo;s see if we can quickly simplify this to one nice simple command.</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">&quot;jasmine-debug&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;jasmine:dev:build&#39;</span><span class="p">,</span> <span class="s1">&#39;connect:jasmine:keepalive&#39;</span><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This one line registers a new task we can call which will in series invoke the <code>jasmine:dev:build</code> task, generating our page, and invoke the <code>connect:jasmine:keepalive</code> task, kicking off our web server. We can run this from the command line now in one command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grunt jasmine-debug
+</span><span class='line'>Running <span class="s2">&quot;jasmine:dev:build&quot;</span> <span class="o">(</span>jasmine<span class="o">)</span> task
+</span><span class='line'>
+</span><span class='line'>Running <span class="s2">&quot;connect:jasmine:keepalive&quot;</span> <span class="o">(</span>connect<span class="o">)</span> task
+</span><span class='line'>Waiting forever...
+</span><span class='line'>Started connect web server on 127.0.0.1:8000.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In fact, let&rsquo;s up the ante, as I think we can make it even better. Wouldn&rsquo;t it be great if it also opened the browser automatically to the page we want?</p>
+
+<p>To do this we need one more node module:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install open --save-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>open</code> allows us to open the default browser with a given url. To use this in our <code>Gruntfile.js</code> we need to add a new task. This will be completely custom:</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;jasmine-server&#39;</span><span class="p">,</span> <span class="s1">&#39;start web server for jasmine tests in browser&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">grunt</span><span class="p">.</span><span class="nx">task</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;jasmine:dev:build&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">grunt</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;connect.jasmine.listening&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">specRunnerUrl</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="nx">host</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nx">port</span> <span class="o">+</span> <span class="s1">&#39;/_SpecRunner.html&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">grunt</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">&#39;Jasmine specs available at: &#39;</span> <span class="o">+</span> <span class="nx">specRunnerUrl</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">)(</span><span class="nx">specRunnerUrl</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">grunt</span><span class="p">.</span><span class="nx">task</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;connect:jasmine:keepalive&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here we&rsquo;re running the <code>jasmine:dev:build</code> to generate the page, then we setup a listener on our connect task <code>connect:jasmine</code> to let us know when the server has started listening on the port, in this listener we&rsquo;ll construct the url to the Jasmine spec and then use <code>open</code> and give it this url to load. Finally, with our listener registered, we can kick off the <code>connect</code> server.</p>
+
+<p>If you run this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grunt jasmine-server
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>it should now open your default browser on the Jasmine spec runner page. A much smoother experience I think you&rsquo;ll agree.</p>
+
+<h3>Running in Continuous Integration</h3>
+
+<p>Now we have some tests it would be useful to integrate them into a CI build so that any failing tests are picked up and reported. A common solution is to generate test output in a JUnit style. For this I&rsquo;d recommend a seperate task as when you&rsquo;re running the tests locally you don&rsquo;t really need to generate the JUnit XML output. So let&rsquo;s refactor task and in a CI version too</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">jasmine</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;src/js/app.js&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">ci</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;src/js/app.js&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">junit</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;build/junit&#39;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;src/js/jquery.js&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">specs</span><span class="o">:</span> <span class="s1">&#39;tests/specs/*.js&#39;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here we refactor out the options so they&rsquo;re shared between both the <code>dev</code> and <code>ci</code> configurations. Unfortunately the <code>src</code> property can not be shared as easily so it gets duplicated. However we can easily fix that by creating a variable instead:</p>
+
+<figure class='code'><figcaption><span>Gruntfile.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">srcFiles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;src/js/app.js&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">jasmine</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="nx">srcFiles</span><span class="p">,</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">ci</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">src</span><span class="o">:</span> <span class="nx">srcFiles</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">junit</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;build/junit&#39;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;src/js/jquery.js&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">specs</span><span class="o">:</span> <span class="s1">&#39;tests/specs/*.js&#39;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This allows us to have one place to specify the src files and we can use across multiple targets. Inside of Jenkins or your CI job configuration you&rsquo;ll need to tell the CI server where to find the JUnit output files, in our case for Jenkins you can simply point it to <code>build/junit</code> and it will find all JUnit output files there and be able to parse and present the test results.</p>
+
+<h2>See also</h2>
+
+<ul>
+<li>Sample project &ndash; {}</li>
+<li><a href="http://pivotal.github.io/jasmine/">Jasmine website</a> &ndash; The Jasmine home page and documentation</li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-jasmine">Grunt-contrib-jasmine</a> &ndash; grunt-contrib-jasmine docs</li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-connect">Grunt-contrib-connect</a> &ndash; grunt-contrib-connect docs</li>
+</ul>
+
+]]></content>
+  </entry>
   
 </feed>

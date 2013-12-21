@@ -642,11 +642,6 @@ body.sidebar-footer .toggle-sidebar {
     padding-right: 16px;
   }
 }
-@media only screen and (min-width: 768px) {
-  ul, ol {
-    margin-left: 0;
-  }
-}
 body > header {
   font-size: 125%;
   background: -webkit-gradient(radial, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(60%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)));
