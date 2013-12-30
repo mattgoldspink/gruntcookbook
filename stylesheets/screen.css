@@ -112,11 +112,11 @@ body > div > div {
   font-family: "Open Sans", sans-serif;
 }
 
-.wf-active .sans, .wf-active body, .wf-active html .gist .gist-file .gist-meta, html .gist .gist-file .wf-active .gist-meta {
+.wf-active .sans {
   font-family: "Open Sans", sans-serif;
 }
 
-.sans, .wf-active body, html .gist .gist-file .gist-meta {
+.sans {
   font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -152,6 +152,10 @@ body {
   line-height: 1.5em;
   color: #222222;
   font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.wf-active body {
+  font-family: "Open Sans", sans-serif;
 }
 
 h1 {
@@ -1455,6 +1459,7 @@ html .gist .gist-file .gist-meta {
   color: #586e75;
   font-size: .7em !important;
   background: #073642 url('/gruntcookbook/images/noise.png?1386763537') top left;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.5em;
 }
 html .gist .gist-file .gist-meta a {
