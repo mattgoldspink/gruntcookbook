@@ -20,14 +20,35 @@
   
   <link rel="canonical" href="http://mattgoldspink.github.io/gruntcookbook">
   <link href="/gruntcookbook/favicon.png" rel="icon">
-  <link href="/gruntcookbook/stylesheets/screen.css?bc3465b410965f5e3e094faf0628a08dda90f57b" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/gruntcookbook/stylesheets/screen.css?f7af55d4218981884bf70bc49864ee2048a50575" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Grunt Cookbook" type="application/atom+xml">
   <script src="/gruntcookbook/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/gruntcookbook/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600|Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans:300italic,400italic,600italic,400,600,300:latin', 'Amatic+SC:400,700:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    setTimeout(function() {
+        s.parentNode.insertBefore(wf, s);
+    }, 0);
+  })();
+  (function() {
+    var fonts = WebFontConfig.google.families,
+        i = fonts.length;
+    while (i--) {
+        document.documentElement.className += ' wf-' + fonts[i].replace(/\s/g, '').toLowerCase() + '-n4-loading';
+    }
+  });
+</script>
 <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
 <style type="text/css">
     #mc_embed_signup{clear:left; font:14px 'Open Sans',sans-serif; }
