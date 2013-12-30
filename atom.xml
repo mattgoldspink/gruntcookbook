@@ -4,7 +4,7 @@
   <title><![CDATA[Grunt Cookbook]]></title>
   <link href="http://mattgoldspink.github.io/gruntcookbook/atom.xml" rel="self"/>
   <link href="http://mattgoldspink.github.io/gruntcookbook/"/>
-  <updated>2013-12-21T15:24:39+00:00</updated>
+  <updated>2013-12-30T13:07:36+00:00</updated>
   <id>http://mattgoldspink.github.io/gruntcookbook/</id>
   <author>
     <name><![CDATA[Matt Goldspink]]></name>
@@ -22,12 +22,15 @@
 
 <p>We all know testing is a good thing to validate that our code works, but somehow we find it too difficult to setup, especially with JavaScript. Fortunately Grunt makes testing very simple to setup and integreate into a developer workflow.</p>
 
+<!-- more -->
+
+
 <h2>Ingredients</h2>
 
 <p>Command Line:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install grunt-contrib-jasmine --save-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>npm install grunt-contrib-jasmine --save-dev
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -182,7 +185,7 @@
 <p>You should find a new file in the current directory called <code>_SpecRunner.html</code>. This is the page that the task would have used to run the tests. Now we need to spin up a web server to host this page so we can hit it in our browsers. There are a couple of ways to do this but I believe the best way is to make sure we have it in our <code>Gruntfile.js</code> so that any other developers can perform the same task in exactly the same way. We will install a new task for this</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install grunt-contrib-connect --save-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>npm install grunt-contrib-connect --save-dev
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -274,7 +277,7 @@
 <p>To do this we need one more node module:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install open --save-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>npm install open --save-dev
 </span></code></pre></td></tr></table></div></figure>
 
 

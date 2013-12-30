@@ -20,7 +20,7 @@
   
   <link rel="canonical" href="http://mattgoldspink.github.io/gruntcookbook/blog/2013/12/20/running-and-debugging-jasmine-tests-with-grunt">
   <link href="/gruntcookbook/favicon.png" rel="icon">
-  <link href="/gruntcookbook/stylesheets/screen.css?ea95e08a7bcb7397ff35bcb16397259a99b48d7e" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/gruntcookbook/stylesheets/screen.css?9d64b3d817416f4c6bfad4c5c0a4377836209dfc" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Grunt Cookbook" type="application/atom+xml">
   <script src="/gruntcookbook/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -28,7 +28,33 @@
   <script src="/gruntcookbook/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600|Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup{clear:left; font:14px 'Open Sans',sans-serif; }
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+       #mc_embed_signup form {padding: 14px 0 0;}
+       #mc_embed_signup label {
+           font-weight: 100;
+       }
+       #mc_embed_signup .button, #mc_embed_signup .button:hover {
+            background-color: #00a651;
+            color:  #fff682;
+       }
+</style>
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40763625-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -44,20 +70,6 @@
       <h2>Effective recipes to master Grunt</h2>
     
     <!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup{clear:left; font:14px 'Open Sans',sans-serif; }
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-       #mc_embed_signup form {padding: 14px 0 0;}
-       #mc_embed_signup label {
-           font-weight: 100;
-       }
-       #mc_embed_signup .button, #mc_embed_signup .button:hover {
-            background-color: #00a651;
-            color:  #fff682;
-       }
-</style>
 <div id="mc_embed_signup">
 <form action="http://mattgoldspink.us6.list-manage.com/subscribe/post?u=3abb8d9832798a6332323d19a&amp;id=ccd081d2c5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <label for="mce-EMAIL">Subscribe for free recipes &amp; Grunt Cookbook updates</label>
@@ -123,12 +135,15 @@
 
 <p>We all know testing is a good thing to validate that our code works, but somehow we find it too difficult to setup, especially with JavaScript. Fortunately Grunt makes testing very simple to setup and integreate into a developer workflow.</p>
 
+<!-- more -->
+
+
 <h2>Ingredients</h2>
 
 <p>Command Line:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install grunt-contrib-jasmine --save-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>npm install grunt-contrib-jasmine --save-dev
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -283,7 +298,7 @@
 <p>You should find a new file in the current directory called <code>_SpecRunner.html</code>. This is the page that the task would have used to run the tests. Now we need to spin up a web server to host this page so we can hit it in our browsers. There are a couple of ways to do this but I believe the best way is to make sure we have it in our <code>Gruntfile.js</code> so that any other developers can perform the same task in exactly the same way. We will install a new task for this</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install grunt-contrib-connect --save-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>npm install grunt-contrib-connect --save-dev
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -375,7 +390,7 @@
 <p>To do this we need one more node module:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install open --save-dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>npm install open --save-dev
 </span></code></pre></td></tr></table></div></figure>
 
 
