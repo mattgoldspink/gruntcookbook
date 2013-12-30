@@ -112,8 +112,12 @@ body > div > div {
   font-family: "Open Sans", sans-serif;
 }
 
-.sans, .wf-active body, html .gist .gist-file .gist-meta {
+.wf-active .sans, .wf-active body, .wf-active html .gist .gist-file .gist-meta, html .gist .gist-file .wf-active .gist-meta {
   font-family: "Open Sans", sans-serif;
+}
+
+.sans, .wf-active body, html .gist .gist-file .gist-meta {
+  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 .serif, #content .blog-index a[rel=full-article] {
@@ -955,7 +959,6 @@ body > nav form {
 body > nav form .search {
   padding: .3em .5em 0;
   font-size: .85em;
-  font-family: "Open Sans", sans-serif;
   line-height: 1.1em;
   width: 95%;
   -webkit-border-radius: 0.5em;
@@ -1041,7 +1044,6 @@ body > nav ul {
   }
   body > nav a {
     color: white;
-    font-family: "Open Sans", sans-serif;
     float: left;
     text-decoration: none;
     font-size: 1.1em;
