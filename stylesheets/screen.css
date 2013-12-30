@@ -112,7 +112,7 @@ body > div > div {
   font-family: "Open Sans", sans-serif;
 }
 
-.sans, body, html .gist .gist-file .gist-meta, #blog-archives a.category, #blog-archives time {
+.sans, .wf-active body, html .gist .gist-file .gist-meta {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -141,12 +141,13 @@ body > header h1 {
 }
 
 body > header h2 {
-  font-family: sans-serif;
+  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   line-height: 1.5em;
   color: #222222;
+  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 h1 {
