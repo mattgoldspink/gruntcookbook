@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+
+	<!-- Your Basic Site Informations -->
+	<title>Grunt Cookbook eBook</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Matt Goldspink" />
+
+    <!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/swipebox.css" />
+    <link rel="stylesheet" href="css/layout.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Colors -->
+    <!-- <link rel="stylesheet" href="css/colors/green/color.css"> -->
+    <!-- <link rel="stylesheet" href="css/colors/lightblue/color.css"> -->
+    <!-- <link rel="stylesheet" href="css/colors/orange/color.css"> -->
+    <!-- <link rel="stylesheet" href="css/colors/pink/color.css"> -->
+    <!-- <link rel="stylesheet" href="css/colors/purple/color.css"> -->
+    <!-- <link rel="stylesheet" href="css/colors/red/color.css"> -->
+    <link rel="stylesheet" href="css/colors/yellow/color.css">
+
+    <!--[if IE 7]>
+    	<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+    <noscript><link rel="stylesheet" href="css/no-js.css"></noscript>
+
+    <!-- Favicons -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Open+Sans:300italic,400italic,600italic,400,600,300:latin', 'Amatic+SC:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        setTimeout(function() {
+            s.parentNode.insertBefore(wf, s);
+        }, 0);
+      })();
+      (function() {
+        var fonts = WebFontConfig.google.families,
+            i = fonts.length;
+        while (i--) {
+            document.documentElement.className += ' wf-' + fonts[i].replace(/\s/g, '').toLowerCase() + '-n4-loading';
+        }
+      });
+    </script>
+</head>
+
+<body>
+
+ <div class="layout-boxed">
+ <section id="top">
+  <div class="container">
+   <div class="row">
+
+    <div class="span6 top-image">
+     <img src="http://titlepages.leanpub.com/gruntcookbook/bookpage" alt="Image" />
+    </div> <!-- End top-image -->
+
+    <div class="span6 top-text">
+     <div class="header-title">
+      <h1>Grunt Cookbook</h1>
+      <p>Effective recipes to master Grunt</p>
+     </div>
+     <p>Wanting to get your web or Node.js projects automatically built, validated, optimised and deployed? Then the recipes in here will help! Every recipe has been built on a realistic project so you have to only copy and paste the code snippets to get up and running.</p>
+     <div class="btn-section">
+      <a href="#packages" class="btn btn-medium">Jump to packages</a>
+     </div>
+     <a href="http://samples.leanpub.com/gruntcookbook-sample.pdf">Download a sample PDF</a>
+    </div> <!-- End top-text -->
+
+   </div> <!-- End row -->
+  </div> <!-- End container -->
+ </section> <!-- End top -->
+
+ <div class="base-section-shadow"></div> <!-- shadow -->
+
+ <section class="intro-text">
+  <div class="container">
+
+  <h1>
+    Get Grunt builds set up <span>instantly</span> with simple and concise recipes. Follow step-by-step as we walkthrough automating common tasks, from <span>compiling</span>, <span>validation</span>, <span>testing to <span>deployment</span>.
+  </h1>
+
+  <div class="sep-bullet"></div> <!-- separator -->
+
+  </div> <!-- End container -->
+ </section> <!-- End intro-text -->
+
+ <section class="features">
+  <div class="container">
+
+   <div class="header-title">
+    <div class="header-border">
+     <h2>What you will get from this book</h2>
+    </div>
+    <p></p>
+   </div> <!-- End header -->
+
+   <div class="row">
+    <div class="span4 item"> <!-- 1 -->
+     <i class="icon-print"></i>
+     <h5>Standard Edition</h5>
+     <h4>DRM free books</h4>
+     <p>The book is available in PDF, EPUB (for iPad) and MOBI (for Kindle). There is no DRM, so it's free to copy, print and share.</p>
+    </div>
+
+    <div class="span4 item"> <!-- 2 -->
+     <i class="icon-bar-chart"></i>
+     <h5>Standard Edition</h5>
+     <h4>Add code validation and reporting with CI integration</h4>
+     <p>See how to generate reports for JavaScript and CSS validation, JavaScript complexity, and unit test coverage of your source code. The book also shows a number of recipes being integrated in Jenkins, a popular Continuous Integration tool, including running unit testing so that builds fail when tests fail.</p>
+    </div>
+
+    <div class="span4 item"> <!-- 3 -->
+     <i class="icon-refresh"></i>
+     <h5>Standard Edition</h5>
+     <h4>Free future updates</h4>
+     <p>The book is being published through leanpub following the lean methodology. That means that as more recipes get added you'll recieve them all for free. In addition you can let me know what recipes you'd like to see and I'll aim to add them to future updates.</p>
+    </div>
+   </div> <!-- End row -->
+
+   <div class="row">
+    <div class="span4 item"> <!-- 4 -->
+     <i class="icon-code"></i>
+     <h5>Ultimate Edition</h5>
+     <h4>Full real world example projects</h4>
+     <p>Each recipe has been written and tested on real world projects. With the "Ultimate Edition" you'll get the source code for these projects so you can see exactly what was done to get them working.</p>
+    </div>
+
+    <div class="span4 item"> <!-- 5 -->
+     <i class="icon-code-fork"></i>
+     <h5>Ultimate Edition</h5>
+     <h4>Git repositories of each stage</h4>
+     <p>Each project is a git repository with multiple branches. This means that you can see the step by step changes made to each project in order to get it to it's final stage. Each recipe highlights the branch to change to each at the different stages so you can walkthrough the book and code together.</p>
+    </div>
+
+    <div class="span4 item"> <!-- 6 -->
+     <i class="icon-heart"></i>
+     <h5>Standard Edition</h5>
+     <h4>45 day money back guarantee</h4>
+     <p>If you're not happy with the book then within 45 days of purchase you can get a 100% refund in two clicks.</p>
+    </div>
+   </div> <!-- End row -->
+
+  </div> <!-- End container -->
+ </section> <!-- End features -->
+
+ <section class="reviews">
+  <div class="container">
+   <div class="row">
+
+    <div class="span4 column-icon">
+     <img src="images/icon-testimonials.png" alt="Icon" />
+    </div> <!-- End column-icon -->
+
+    <div class="span8">
+     <div class="header-title">
+      <h2>Read all of those great reviews!</h2>
+      <p>Praesent mattis mauris urna suspendisse vulputate, urna sit amet laoreet iaculis, magna urna porttitor justo, vel pretium sapien turpis nec turpis.</p>
+     </div> <!-- End header -->
+
+     <div class="item"> <!-- 1 -->
+      <div class="content">
+       <p>"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce eget consectetur erat. Sed consectetur pharetra eros non molestie. Ut luctus pharetra ipsum, ac consequat neque pulvinar pellentesque. Pellentesque volutpat nunc in lorem laoreet id imperdiet nisl elementum."</p>
+       <div class="profile">
+        <figure><img src="images/reviews/1.jpg" alt="Avatar" /></figure>
+        <span class="name">
+         <strong>&mdash; Mugiwara Kiwolen</strong>
+         <i>Senior Marketing Strategy</i>
+        </span>
+       </div>
+      </div>
+     </div>
+
+     <div class="item"> <!-- 2 -->
+      <div class="content">
+       <p>"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce eget consectetur erat. Sed consectetur pharetra eros non molestie. Ut luctus pharetra ipsum, ac consequat neque pulvinar pellentesque. Pellentesque volutpat nunc in lorem laoreet id imperdiet nisl elementum."</p>
+       <div class="profile">
+        <figure><img src="images/reviews/2.jpg" alt="Avatar" /></figure>
+        <span class="name">
+         <strong>&mdash; Rendy Jagerjack</strong>
+         <i>Vice Marketing Strategy</i>
+        </span>
+       </div>
+      </div>
+     </div>
+
+     <div class="item"> <!-- 3 -->
+      <div class="content">
+       <p>"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce eget consectetur erat. Sed consectetur pharetra eros non molestie. Ut luctus pharetra ipsum, ac consequat neque pulvinar pellentesque. Pellentesque volutpat nunc in lorem laoreet id imperdiet nisl elementum."</p>
+       <div class="profile">
+        <figure><img src="images/reviews/3.jpg" alt="Avatar" /></figure>
+        <span class="name">
+
+         <strong>&mdash; Amah Holland</strong>
+         <i>Head Template Designer</i>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div> <!-- End span8 -->
+
+   </div> <!-- End row -->
+  </div> <!-- End container -->
+ </section> <!-- End reviews -->
+
+ <div class="base-section-shadow"></div> <!-- shadow -->
+
+ <section class="previews">
+  <div class="container">
+
+   <div class="header-title">
+    <div class="header-border">
+     <h2>Some sneak peaks into the eBook</h2>
+    </div>
+    <p>The book goes beyond just simple tasks like concatenation to demonstrating how to use multiple testing frameworks and JavaScript frameworks, integrating recipes into Continuous Integration, and generating deployable build artifacts</p>
+   </div> <!-- End header -->
+
+   <div class="flexslider loading">
+    <ul class="slides">
+
+     <li class="row-fluid">
+      <a href="images/screenshots/full/1.jpg" class="span4 item swipebox" title="Title of chapter 01 here"> <!-- 1 -->
+       <h4>Add Grunt to an existing project</h4>
+       <figure class="figure-hover">
+        <img src="images/screenshots/thumb/1.jpg" alt="Image" />
+        <div><span class="icon-hover icon-hover-zoom"></span></div>
+       </figure>
+       <p>Chances are you already have a project in mind that you want to add Grunt to. The eBook shows step by step how to install and add Grunt to an existing sample project, showing how to a directory of source artifacts and copy them to a deployment folder.</p>
+       <div class="button"><span>Chapter 01</span></div>
+      </a>
+
+      <a href="images/screenshots/full/1.jpg" class="span4 item swipebox" title="Title of chapter 02 here"> <!-- 2 -->
+       <h4>Adding unit testing to your code</h4>
+       <figure class="figure-hover">
+        <img src="images/screenshots/thumb/1.jpg" alt="Image" />
+        <div><span class="icon-hover icon-hover-zoom"></span></div>
+       </figure>
+       <p>We all know that testing our code is important, but for some reason it can be hard to do it. The unit testing recipe's show how to setup various frameworks like Jasmine, Selenium and Mocha, how to get them running as your code and finally how to integrate them into Continuous Integration. Using these recipes you're build will </p>
+       <div class="button"><span>Chapter 02</span></div>
+      </a>
+
+      <a href="images/screenshots/full/1.jpg" class="span4 item swipebox" title="Title of chapter 03 here"> <!-- 3 -->
+       <h4>Using Grunt on CoffeeScript and TypeScript</h4>
+       <figure class="figure-hover">
+        <img src="images/screenshots/thumb/1.jpg" alt="Image" />
+        <div><span class="icon-hover icon-hover-zoom"></span></div>
+       </figure>
+       <p>The book demonstrates how to add compilation support to your CoffeeScript and TypeScript projects. If you buy the "Book and Source Code" you'll get to see two complete MVC based examples of a Todo app written in both languages so you can see real world examples being built up step by step.</p>
+       <div class="button"><span>Chapter 03</span></div>
+      </a>
+     </li> <!-- End row-fluid -->
+
+    </ul> <!-- End slides -->
+   </div> <!-- End flexslider -->
+
+  </div> <!-- End container -->
+ </section> <!-- End previews -->
+
+ <section class="subscribe-form">
+  <div class="container">
+    <!-- Begin MailChimp Signup Form -->
+    <div id="mc_embed_signup">
+    <form action="http://mattgoldspink.us6.list-manage.com/subscribe/post?u=3abb8d9832798a6332323d19a&amp;id=ccd081d2c5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate row" target="_blank" novalidate id="dotstheme-subscribe-form">
+
+    <div class="mc-field-group">
+        <div class="span5 form-label">
+         <label>Get a free chapters, subscribe our Newsletter!</label>
+        </div>
+        <div class="span5 form-input">
+        <input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Enter a valid email address">
+        </div>
+        <div class="span2 form-submit">
+         <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe Now" />
+        </div>
+    </div>
+        <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_3abb8d9832798a6332323d19a_ccd081d2c5" value=""></div>
+    </form>
+    </div>
+
+    <!--End mc_embed_signup-->
+  </div> <!-- End container -->
+ </section> <!-- End subscribe-form -->
+
+ <div class="base-section-shadow"></div> <!-- shadow -->
+
+ <section class="pricing">
+  <div class="container">
+
+    <a name="packages"></a>
+   <div class="header-title">
+    <div class="header-border">
+     <h2>See our pricing and plans</h2>
+    </div>
+    <p>The book comes in two forms</p>
+   </div> <!-- End header -->
+
+   <div class="row tbl-pricing">
+
+    <div class="span3 column"> <!-- 2 -->
+     <div class="tbl-header">
+      <h4>The Book</h4>
+      <div class="price">$22<sup>00</sup></div>
+      <p>Standard Edition</p>
+     </div>
+     <ul>
+      <li><i class="icon-check"></i> Learn how to add Grunt to existing projects</li>
+      <li><i class="icon-check"></i> See how to perform common tasks on real projects</li>
+      <li><i class="icon-check"></i> DRM free PDF, EPUB (for iPad) and MOBI (for Kindle)</li>
+      <li><i class="icon-check"></i> Free future updates to the book</li>
+     </ul>
+     <div class="tbl-footer">
+      <form action="https://leanpub.com/purchases" method="post" id="the_book">
+        <input type="hidden" name="book_slug" value="gruntcookbook" />
+        <input type="submit" name="commit" class="hidden" value="Buy it Now" style="display:none" />
+        <a href="#" class="btn" onclick="document.forms['the_book'].submit(); return false;">Buy it Now</a>
+      </form>
+      <p>45 Day Money Back Guarantee</p>
+     </div>
+    </div>
+
+    <div class="span3 column column-recommended"> <!-- 3 -->
+     <div class="tbl-header">
+      <h4>Book &amp; Source Code</h4>
+      <div class="price">$45<sup>00</sup></div>
+      <p>Ultimate Edition</p>
+     </div>
+     <ul>
+        <li><i class="icon-check"></i> Learn how to add Grunt to existing projects</li>
+        <li><i class="icon-check"></i> See how to perform common tasks on real projects</li>
+        <li><i class="icon-check"></i> DRM free PDF, EPUB (for iPad) and MOBI (for Kindle)</li>
+        <li><i class="icon-check"></i> Free future updates to the book</li>
+      <li><i class="icon-check"></i> The code for every recipe in the book</li>
+      <li><i class="icon-check"></i> Git repositories for each example project so you can see the changes at each step</li>
+     </ul>
+     <div class="tbl-footer">
+        <form action="https://leanpub.com/purchases" method="post" id="the_book">
+          <input type="hidden" name="book_slug" value="gruntcookbook" />
+          <input type="submit" name="commit" class="hidden" value="Buy it Now" style="display:none" />
+          <a href="#" class="btn" onclick="document.forms['the_book'].submit(); return false;">Buy it Now</a>
+        </form>
+        <p>45 Day Money Back Guarantee</p>
+     </div>
+    </div>
+
+   </div> <!-- End tbl-pricing -->
+
+  </div> <!-- End container -->
+ </section> <!-- End pricing -->
+
+ <section class="about">
+  <div class="container">
+
+   <div class="sep-bullet"></div> <!-- separator -->
+
+   <div class="row">
+    <figure class="span2">
+     <img src="http://2.gravatar.com/avatar/288be2ef60272388d06098d75f801a47?s=170" alt="Avatar" class="avatar" />
+    </figure> <!-- End span2 -->
+
+    <div class="span10">
+     <div class="header-title">
+      <h2>About the author</h2>
+      <p>Matt Goldspink is a full stack developer based in London, UK. He has worked in investment banks, startups and is currently a full time consultant, specialising in training and technical writing.</p>
+     </div> <!-- End header-title -->
+
+     <div class="row">
+      <div class="span6">
+       <p>I wrote this book after using Grunt in a large enterprise and a startup to replace aging and painfully slow Ant based build systems. I loved that all the plugins for JSHint, Compass, concat/minify and more were available straight away. As I started to use it more I realised that there was a lot more power and potential to Grunt than just a build system. I wanted to share my own learnings and insights in the hope that some or all of the recipe's in the book resonate with you and inspire you to automate more of you daily tasks.</p>
+      </div> <!-- End span6 -->
+
+      <div class="span4">
+       <ul class="bio">
+        <li><span>Name</span><i>Matt Goldspink</i></li>
+        <li><span>Website</span><i><a href="http://www.mattgoldspink.co.uk">http://www.mattgoldspink.co.uk</a></i></li>
+       </ul>
+      </div> <!-- End span4 -->
+     </div> <!-- End row -->
+
+    </div> <!-- End span10 -->
+   </div> <!-- End row -->
+
+  </div> <!-- End container -->
+ </section> <!-- End about -->
+
+ </div> <!-- End layout-boxed -->
+
+ <div class="base-section-shadow-reverse responsive"></div> <!-- shadow -->
+
+ <footer id="footer">
+  <div class="container">
+   <p class="pull-left">© Sellbook Responsive eBook Template 2013. All rights reserved.</p>
+   <p class="pull-right">Available now via <a href="#">Themeforest</a>.</p>
+  </div> <!-- End container -->
+ </footer> <!-- End footer -->
+
+ <a href="#" class="scrollup" title="Back to Top!">Scroll</a>
+
+ <!-- JavaScript -->
+ <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+ <script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+ <script type='text/javascript' src='js/bootstrap.min.js'></script>
+ <script type="text/javascript" src="js/jquery-easing.js"></script>
+ <script type='text/javascript' src='js/jquery.placeholder.min.js'></script>
+ <script type='text/javascript' src='js/jquery.flexslider-min.js'></script>
+ <script type="text/javascript" src="js/ios-orientationchange-fix.js"></script>
+ <script type='text/javascript' src='js/jquery.swipebox.min.js'></script>
+ <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
