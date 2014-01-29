@@ -29,7 +29,7 @@
 }
 
 body {
-	font-family:'Droid Sans', Arial, sans-serif;
+	font-family:'Open Sans', Arial, sans-serif;
 	color:#5a5a5a;
 	font-size:14px;
 	line-height:22px;
@@ -122,7 +122,6 @@ a:hover {
 input[type="text"] {
 	height:44px;
 	padding:0px 15px;
-	font-family:Ubuntu, Arial, sans-serif;
 	border:1px solid #e0e0e0;
 	outline:none;
 	font-size:13px;
@@ -136,7 +135,6 @@ input[type="text"] {
 
 textarea {
 	padding:15px;
-	font-family:Ubuntu, Arial, sans-serif;
 	border:1px solid #e0e0e0;
 	outline:none;
 	font-size:13px;
@@ -151,7 +149,7 @@ textarea {
 .btn, input[type="button"], input[type="submit"], input[type="reset"], button {
 	font-size:13px;
 	line-height:44px;
-	font-family:'Droid Sans', Arial, sans-serif;
+	font-family:'Open Sans', Arial, sans-serif;
 	text-transform:uppercase;
 	text-align:center;
 	text-shadow:0px 1px 0px #014b5c;
@@ -503,7 +501,7 @@ figure.figure-hover { position:relative; }
 			font-size:90px;
 			font-weight:bold;
 			line-height:90px;
-            font-family: "Amatic SC";
+            font-family: "Amatic SC", sans-serif;
 		}
 	#top .btn-section { padding-top:30px; }
 	#top .note {
@@ -557,7 +555,7 @@ figure.figure-hover { position:relative; }
 			color:#b0b0b0;
 			margin:15px 0px 0px;
 			text-transform:uppercase;
-			font-family:'Droid Sans', Arial, sans-serif;
+			font-family:'Open Sans', Arial, sans-serif;
 		}
 		.features .item p { margin:0px; }
 
