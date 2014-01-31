@@ -6,15 +6,15 @@
 
 <head>
 
-	<!-- Your Basic Site Informations -->
-	<title>Grunt Cookbook eBook</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <!-- Your Basic Site Informations -->
+    <title>Grunt Cookbook eBook</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Matt Goldspink" />
 
     <!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -34,20 +34,20 @@
     <link rel="stylesheet" href="css/colors/yellow/color.css">
 
     <!--[if IE 7]>
-    	<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
+        <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
     <![endif]-->
 
     <!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <noscript><link rel="stylesheet" href="css/no-js.css"></noscript>
 
     <!-- Favicons -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     <script type="text/javascript">
       WebFontConfig = {
         google: { families: [ 'Open+Sans:300italic,400italic,600italic,400,600,300:latin', 'Amatic+SC:400,700:latin', 'Ubuntu::latin', 'Bitter::latin'] }
@@ -80,7 +80,11 @@
    <div class="row">
 
     <div class="span6 top-image">
-     <img src="http://titlepages.leanpub.com/gruntcookbook/bookpage" alt="Image" />
+        <div class="books">
+          <div class="book">
+            <img src="http://titlepages.leanpub.com/gruntcookbook/bookpage" alt="Image" />
+          </div>
+        </div>
     </div> <!-- End top-image -->
 
     <div class="span6 top-text">
@@ -253,7 +257,7 @@
         <img src="images/screenshots/thumb/adding_grunt.png" alt="Image" />
         <div><span class="icon-hover icon-hover-zoom"></span></div>
        </figure>
-       <p>Chances are you already have a project in mind that you want to add Grunt to. The eBook shows step by step how to install and add Grunt to an existing sample project, showing how to a directory of source artifacts and copy them to a deployment folder.</p>
+       <p>Chances are you already have a project in mind that you want to add Grunt to. The eBook shows step by step how to install and add Grunt to an existing sample project, showing how to take a directory of source artifacts and copy them to a deployment folder.</p>
        <div class="button"><span>Add Grunt to an existing project</span></div>
       </a>
 
@@ -263,17 +267,17 @@
         <img src="images/screenshots/thumb/jasmine.png" alt="Image" />
         <div><span class="icon-hover icon-hover-zoom"></span></div>
        </figure>
-       <p>We all know that testing our code is important, but for some reason it can be hard to do it. The unit testing recipe's show how to setup various frameworks like Jasmine, Selenium and Mocha, how to get them running as your code and finally how to integrate them into Continuous Integration. Using these recipes you're build will </p>
+       <p>We all know that testing our code is important, but for some reason it can be hard to do it. The unit testing recipe's show how to setup various frameworks like Jasmine, Selenium and Mocha, how to get them running as your code and finally how to integrate them into Continuous Integration.</p>
        <div class="button"><span>Running Jasmine Tests</span></div>
       </a>
 
       <a href="images/screenshots/full/coffeescript.png" class="span4 item swipebox" title="Compiling CoffeeScript"> <!-- 3 -->
-       <h4>Using Grunt on CoffeeScript and TypeScript</h4>
+       <h4>Using Grunt with CoffeeScript</h4>
        <figure class="figure-hover">
         <img src="images/screenshots/thumb/coffeescript.png" alt="Image" />
         <div><span class="icon-hover icon-hover-zoom"></span></div>
        </figure>
-       <p>The book demonstrates how to add compilation support to your CoffeeScript and TypeScript projects. If you buy the "Book and Source Code" you'll get to see two complete MVC based examples of a Todo app written in both languages so you can see real world examples being built up step by step.</p>
+       <p>The book demonstrates how to add compilation support to your CoffeeScript projects. If you buy the "Book and Source Code" you'll get to see two complete MVC based examples of a Todo app written in both languages so you can see real world examples being built up step by step.</p>
        <div class="button"><span>Compiling CoffeeScript</span></div>
       </a>
      </li> <!-- End row-fluid -->
@@ -328,10 +332,10 @@
 
    <div class="row tbl-pricing">
 
-    <div class="span3 column"> <!-- 2 -->
+    <div class="span6 column"> <!-- 1 -->
      <div class="tbl-header">
       <h4>The Book</h4>
-      <div class="price">$22<sup>00</sup></div>
+      <div class="price"></del>$12<sup>99</sup></div>
       <p>Standard Edition</p>
      </div>
      <ul>
@@ -350,10 +354,10 @@
      </div>
     </div>
 
-    <div class="span3 column column-recommended"> <!-- 3 -->
+    <div class="span6 column column-recommended"> <!-- 2 -->
      <div class="tbl-header">
       <h4>Book &amp; Source Code</h4>
-      <div class="price">$45<sup>00</sup></div>
+      <div class="price">$19<sup>99</sup></div>
       <p>Ultimate Edition</p>
      </div>
      <ul>
@@ -381,12 +385,13 @@
 
  <section class="about">
   <div class="container">
-
-   <div class="sep-bullet"></div> <!-- separator -->
-
+   <div class="header-title">
+    <div class="header-border"><h2>&nbsp;</h2>
+    </div>
+   </div> <!-- End header -->
    <div class="row">
     <figure class="span2">
-     <img src="http://2.gravatar.com/avatar/288be2ef60272388d06098d75f801a47?s=170" alt="Avatar" class="avatar" />
+     <img src="http://2.gravatar.com/avatar/288be2ef60272388d06098d75f801a47?s=720" alt="Avatar" class="avatar" />
     </figure> <!-- End span2 -->
 
     <div class="span10">
@@ -403,7 +408,7 @@
       <div class="span4">
        <ul class="bio">
         <li><span>Name</span><i>Matt Goldspink</i></li>
-        <li><span>Website</span><i><a href="http://www.mattgoldspink.co.uk">http://www.mattgoldspink.co.uk</a></i></li>
+        <li><span>Website</span><i><a href="http://www.mattgoldspink.co.uk">mattgoldspink.co.uk</a></i></li>
        </ul>
       </div> <!-- End span4 -->
      </div> <!-- End row -->
