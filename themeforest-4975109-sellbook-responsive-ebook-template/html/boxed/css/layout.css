@@ -1077,3 +1077,8 @@ figure.figure-hover { position:relative; }
   -moz-transform: rotateY(8deg);
   -webkit-transform: perspective(100) rotateY(20deg);
 }
+
+/* Until I get some feedback */
+.reviews {
+    display: none;
+}
